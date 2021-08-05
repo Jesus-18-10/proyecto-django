@@ -1,0 +1,61 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo %}
+COMENTARIOS DE CONTACTO
+{% endblock %}
+
+{% block url_menu %}
+{%url 'Comentarios'%}
+{% endblock %}
+
+{% block imagen %}
+{%load static%}
+{%static 'inicio/images/home.png'%}
+{% endblock %}
+
+{% block titulo_menu %}
+Consulta 
+{% endblock %}
+
+{% block sub_titulo_menu %}
+Consulta de contacto
+{% endblock %}
+
+
+{% block contenido %}
+        <!--Tabla  de alumnos -->
+       
+        <div class="page-header">
+            <div class="page-title">
+                <h3>Comentarios
+                <small>Lista de Comentarios 9A</small></h3>
+            </div>
+        </div>
+{% endblock %}
+
+{% block contenido2 %}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Mensaje</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for comentario in comentarios%}
+        <tr>
+    <th class="text-center">{{comentario.usuario}}</th>
+    <th class="text-center" >{{comentario.mensaje}}</th>
+    <th class="text-center"><a href="{%url 'Editar' comentario.id%}">Editar</a></th>
+    <th class="text-center">
+        <a href="{%url 'Eliminar' comentario.id%}">Eliminar {{comentario.id}} </a></th>
+</tr>
+        {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
+
+  
