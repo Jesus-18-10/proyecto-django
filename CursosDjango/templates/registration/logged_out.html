@@ -1,0 +1,12 @@
+{% extends "Contenido/encabezado.html" %}
+
+{% block titulo %} Iniciar Sesión- {% endblock %}
+{% block contenido %}
+{%load static%}
+<!--<link rel="stylesheet" href="{% static 'tours/css/login.css'%}"></link> <-->
+{% block content %}
+<p>Logged out!</p>
+
+<a href="{% url 'login'%}">Click here to login again.</a>
+{% endblock %}
+{% endblock %}

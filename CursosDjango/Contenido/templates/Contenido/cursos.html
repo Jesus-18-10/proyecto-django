@@ -1,0 +1,44 @@
+{% extends "Contenido/encabezado.html" %}
+{% block titulo %}CURSOS{% endblock %}
+
+{%block act1%}{%endblock%}
+{%block act2%}active{%endblock%}
+{%block act3%}{%endblock%}
+
+{% block icono %}
+{%load static%}
+{% static 'Contenido/images/iconodj2.png'%}
+{% endblock %}
+
+{% block imagen %}
+{%load static%}
+{% static 'Contenido/images/iconodj2.png'%}
+{% endblock %}
+
+
+{% block contenido %}
+<h2>Cursos</h2>
+<ol>
+  <li> Fundamentos Django 1.7</li>
+  <dd>- Movilidad Internacional</dd>
+  <dd>- Futuro</dd>
+  <br>
+  <li> Óptimo entorno de desarrollo</li>
+  <dd>- </dd>
+  <br>
+  <li> Organización del proyecto</li>
+  <dd>- </dd>
+  <br>
+  <li> Base de datos</li>
+  <dd>- </dd>
+  <br>
+  <li> Modelos</li>
+  <dd>- </dd>
+  <br>
+  <li> Migraciones</li>
+  <dd>- </dd>
+<br>
+  <li> Vistas</li>
+  <dd>- </dd>
+</ol>
+{% endblock %}
