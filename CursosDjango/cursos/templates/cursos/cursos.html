@@ -1,0 +1,92 @@
+{% extends "Contenido/encabezado.html" %}
+{% block titulo %}CURSOS2{% endblock %}
+
+{%block act2%}active{%endblock%}
+
+{% block icono %}
+{%load static%}
+{% static 'Contenido/images/iconodj2.png'%}
+{% endblock %}
+
+{% block imagen %}
+{%load static%}
+{% static 'Contenido/images/iconodj2.png'%}
+{% endblock %}
+
+{% block contenido %}
+
+        <!-- Content -->
+          <div id="content-main">
+
+<ul class="object-tools">
+  <li>
+    <a href="{% url 'CursoNuevo'%}" class="addlink">
+      Agregar Curso
+    </a>
+  </li>
+</ul>
+</div>
+<h2>Cursos</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+      <tr>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Descripción</th>
+          <th class="text-center">Precio</th>
+          <th class="text-center">Duración</th>
+          <th class="text-center">Asesor</th>
+          <th class="text-center">Descuento</th>
+          <th class="text-center">Imagen</th>
+          <th class="text-center">Editar </th>
+          <th class="text-center">Eiminar</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+      {%for curso in cursos%}  
+  <th class="text-semibold">{{curso.nombre}}</th>
+  <th class="muted">{{curso.descripcion}}</th>
+  <th class="muted">${{curso.precio}}</th>
+  <th class="muted">{{curso.duracion_horas}} hrs</th>
+  <th class="muted">{{curso.asesor}}</th>
+    <th class="muted">{{curso.porcentaje_descuento}} % </th>
+    <th class="text-center">
+      <img src="{{curso.imagen.url}}" height="100px" width="150px">
+    </th> 
+    <th class="text-center"><a href="{%url 'Editar' curso.id%}">Editar</a></th>
+  <th class="text-center">
+      <a href="{%url 'EliminarCurso' curso.id%}">Eliminar</a></th>
+</tr>
+      {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
+
+
+
+
+
+
+<!--
+  
+
+{%for curso in cursos%}
+<h4> <strong><li>{{curso.nombre}} </li></strong> </h4>
+  <dd>Descripción: {{curso.descripcion}}</dd>
+  <dd>Precio: ${{curso.precio}}</dd>
+  <dd>Duracion: {{curso.duracion_horas}} hrs </dd>
+  <dd>Asesor: {{curso.asesor}}  </dd>
+  <dd>Descuento: {{curso.porcentaje_descuento}} % </dd>
+  <img src="{{curso.imagen.url}}" height="100px" width="150px">
+  <br>
+  <th class="text-center"><a href="{%url 'Editar' curso.id%}">Editar {{curso.id}}</a></th>
+  <br>
+  <th class="text-center">
+      <a href="{%url 'EliminarCurso' curso.id%}">Eliminar {{curso.id}} </a></th>
+</tr>
+
+  <br>
+{% endfor %}
+-->

@@ -1,0 +1,121 @@
+{% extends "Contenido/encabezado.html" %}
+{% block titulo %}
+Editar Curso
+{% endblock %}
+
+{%block act2%}active{%endblock%}
+
+{% block icono %}
+{%load static%}
+{% static 'Contenido/images/contacto1.png'%}
+{% endblock %}
+
+{% block imagen %}
+{%load static%}
+{% static 'Contenido/images/contacto1.png'%}
+{% endblock %}
+
+{% block contenido %}
+<h1>Editar el Curso {{curso.nombre}}</h1>
+
+
+    <form class="form-horizontal" action="{% url 'RegistrarEditar' curso.id%}" method="POST" role="form" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="alert alert-info col-sm-10">Completa los siguientes campos</div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre:</label>
+                <div class="col-sm-10">
+                    <input  value="{{curso.nombre}}" name="nombre" type="text" placeholder="Ingresa el nombre del Curso" class="form-control">
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Descripción:</label>
+                <div class="col-sm-10">
+                    <textarea  name="descripcion" class="form-control" id="mensaje" rows="5" cols="50"  placeholder="Escribe la descripción del curso">{{curso.descripcion}}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Costo:</label>
+                <div class="col-sm-10">
+                    <input value="{{curso.precio}}" name="precio" type="number" min="0" placeholder="Ingresa el precio en Pesos" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Duracion:</label>
+                <div class="col-sm-10">
+                    <input value="{{curso.duracion_horas}}" name="duracion_horas" type="number" min="1" placeholder="Ingresa la duración en horas" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre del Asesor:</label>
+                <div class="col-sm-10">
+                    <input value="{{curso.asesor}}" name="asesor" type="text" placeholder="Ingresa el nombre del Asesor" class="form-control">
+                </div>
+            </div>
+         
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Correo Electronico:</label>
+                <div class="col-sm-10">
+                    <input value="{{curso.correo_asesor}}" name="correo_asesor" type="email"  placeholder="Ingresa el E-mail del Asesor" class="form-control">
+                </div>
+            </div>
+
+         
+
+            <div class="form-group">
+                <label class="col-sm-10 control-label text">Marca Si Este Curso Tiene Descuento</label>
+                <div class="col-sm-10">
+                    <input id="chkdescuento" type="checkbox" name="descuento" class="styled" > Descuento?
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-19 control-label text">Descuento con Decimales:</label>
+                <div class="col-sm-10">
+                    <input value="{{curso.porcentaje_descuento}}" name="porcentaje_descuento" type="number"  min="0" max="100" placeholder="% de descuento" class="form-control">
+                </div>
+            </div>
+
+ 
+         <div class="form-group">
+            <label class="col-sm-10 control-label text">Imagen:</label>
+            <div class="col-sm-10">
+                <img src="{{curso.imagen.url}}" height="100px" width="150px">
+                <p class="file-upload">Actualmente: <a href="{{curso.imagen.url}}">{{curso.imagen}}</a><br>
+
+                    <br>Modificar:
+                    <input type="file" name="imagen" accept="image/*" id="id_imagen"></p>
+                  </div>
+        </div>
+                         
+
+            <div class="form-actions text-right">
+                <div class="col-sm-10">
+                <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script>  
+var dato ='{{curso.descuento}}';
+    if(dato=='True'){
+        document.getElementById("chkdescuento").checked = true;
+         // $('#chkdescuento').prop('checked', true);
+    }
+    </script>
+
+{% endblock %}
+

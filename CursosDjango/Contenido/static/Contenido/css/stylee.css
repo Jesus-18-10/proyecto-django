@@ -1,0 +1,11 @@
+
+/* Envuelva todo el contenido de la página, pero no dentro de esta navegacion del div si no una parte superior fija, no añada ningún relleno superior */
+#page-content {
+    position: relative;
+    padding-top: 70px;
+    left: 0;
+}
+#page-content.slide-active {
+    padding-top: 0
+}
+

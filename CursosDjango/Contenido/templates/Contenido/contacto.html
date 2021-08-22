@@ -1,0 +1,111 @@
+{% extends "Contenido/encabezado.html" %}
+{% block titulo %}
+CONTACTO
+{% endblock %}
+
+{%block act1%}{%endblock%}
+{%block act2%}{%endblock%}
+{%block act3%}active{%endblock%}
+
+{% block icono %}
+{%load static%}
+{% static 'Contenido/images/contacto1.png'%}
+{% endblock %}
+
+{% block imagen %}
+{%load static%}
+{% static 'Contenido/images/contacto1.png'%}
+{% endblock %}
+
+{% block contenido %}
+<h1>Solicita Información sobre los cursos</h1>
+<form class="form-horizontal" action="#" role="form" >
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="alert alert-info col-sm-10">Completa los siguientes campos</div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre:</label>
+                <div class="col-sm-10">
+                    <input type="text" placeholder="Ingresa tu Nombre(s )" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Apellidos:</label>
+                <div class="col-sm-10">
+                    <input type="text"  placeholder="Ingresa tu Apellidos" class="form-control">
+                </div>
+            </div>
+         
+            <div class="form-group">
+                <label class="col-sm-10 control-label text">Marca si Eres estudiante:</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" name="estudiante" class="styled" > Estudiante
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Correo Electronico:</label>
+                <div class="col-sm-10">
+                    <input type="email"  placeholder="Ingresa tu E-mail" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Telefono:</label>
+                <div class="col-sm-10">
+                    <input type="tel"  placeholder="Ingresa tu numero de telefono" class="form-control">
+                </div>
+            </div>
+       
+            
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Cursos de interes:</label>
+                <div class="col-sm-10">
+                    <select data-placeholder="Elige un curso"  class="form-control" tabindex="2" >
+                        <option>Fundamentos Django</option>
+                        <option>Óptimo entorno de desarrollo</option>
+                        <option>Organización del proyecto</option>
+                        <option>Base de datos</option>
+                        <option>Modelos</option>
+                        <option>Migraciones</option>
+                        <option>Vistas</option>
+                </select>
+                </div>
+            </div>
+
+      
+            <div class="form-group">
+                <label class="col-sm-2 control-label text">Mensaje:</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="mensaje" rows="5" cols="50"  placeholder="Escribe tu comentario"></textarea>
+      
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-10 control-label text">Selecciona una calificación para el sitio web (el 5 es la calificacion mas alta)</label>
+                <div class="col-sm-10">
+                    <select  class="form-control" tabindex="2" >
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+    
+                </select>
+                </div>
+            </div>
+
+            <div class="form-actions text-right">
+                <div class="col-sm-10">
+                <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+{% endblock %}

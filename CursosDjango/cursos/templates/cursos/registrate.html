@@ -1,0 +1,49 @@
+{% extends "Contenido/encabezado.html" %}
+{% block titulo %} Registrate {% endblock %}
+{% block contenido %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'tours/css/login.css'%}"></link> 
+<div class="container">
+    <div class="card card-container login">
+      <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+      <h3>Registro de usuario</h3>
+     <br>
+     <div class="alert alert-info" role="alert">
+        Completa los siguientes datos
+      </div>
+
+      <form class="form-signin" action="{%url 'Registrar_usuario'%}" method="POST" role="form">
+        {%csrf_token%}  
+        
+        <input name="nombre" type="text" id="inputname" class="form-control" placeholder="Nombre" required >
+
+        <input name="apellido" type="text" id="inputnamea" class="form-control" placeholder="Apellidos" required >      
+        <input name="correo" type="email" id="inputEmail" class="form-control" placeholder="Correo Electronico" required >
+
+
+       <!-- <input name="telefono" type="tel" name="inputtel" class="form-control"  list="listatelefonos" placeholder="Telefono">-->
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required >   
+        
+        <input name="password2" type="password" id="inputPassword2" class="form-control" placeholder="Confirma tu Contraseña" required>      
+
+       
+        <button type="submit" class="btn btn-outline-primary">Registrate</button> 
+
+        {% if mensaje == '' %}
+
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+          {{mensaje}}
+        </div>
+
+        {% endif %} 
+
+        <li class="col-md-12 col-sm-12 col-xs-12 btn">
+            <a href="{% url 'login'%}">Regresar</a></li>
+      </form>
+    </div>
+    </div>
+
+
+
+{% endblock %}
